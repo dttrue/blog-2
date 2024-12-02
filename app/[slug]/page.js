@@ -4,6 +4,14 @@ import { client } from "../sanity/client";
 import Link from "next/link";
 import Head from "next/head";
 
+// Helper function to build image URLs
+const { projectId, dataset } = client.config();
+const urlFor = (source) =>
+  projectId && dataset
+    ? imageUrlBuilder({ projectId, dataset }).image(source)
+    : null;
+
+// Query for individual post
 const PAGE_QUERY = `*[_type == "post" && slug.current == $slug][0]{
   title,
   body,
@@ -17,23 +25,32 @@ const PAGE_QUERY = `*[_type == "post" && slug.current == $slug][0]{
   metaDescription
 }`;
 
-const { projectId, dataset } = client.config();
-const urlFor = (source) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
+// Generate static paths
+export async function generateStaticParams() {
+  const slugs = await client.fetch(`*[_type == "post"].slug.current`);
+  return slugs.map((slug) => ({ slug }));
+}
 
-const options = { next: { revalidate: 30 } };
-
+// Server Component to fetch and render data
 export default async function Page({ params }) {
-  const page = await client.fetch(PAGE_QUERY, params, options);
+  const { slug } = params;
+  const page = await client.fetch(PAGE_QUERY, { slug });
+
+  if (!page) {
+    return (
+      <main className="container mx-auto min-h-screen p-8">
+        <h1 className="text-4xl font-bold">Post Not Found</h1>
+        <p>The requested post does not exist.</p>
+      </main>
+    );
+  }
+
   const pageImageUrl = page.image
     ? urlFor(page.image).width(550).height(310).url()
     : null;
 
   return (
     <>
-      {/* SEO Metadata */}
       <Head>
         <title>{page.title}</title>
         <meta
@@ -52,7 +69,6 @@ export default async function Page({ params }) {
         />
       </Head>
 
-      {/* Post Content */}
       <main className="container mx-auto min-h-screen max-w-3xl p-8 flex flex-col gap-6">
         <Link
           href="/posts"
