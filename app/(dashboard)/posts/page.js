@@ -1,4 +1,4 @@
-import { client } from "../../sanity/client";
+import { client } from "../../../sanity/client";
 import PostList from "@/components/list/PostList";
 
 const POSTS_QUERY = `*[

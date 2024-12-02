@@ -1,6 +1,6 @@
 import { PortableText } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
-import { client } from "../sanity/client";
+import { client } from "../../sanity/client";
 import Link from "next/link";
 import Head from "next/head";
 
