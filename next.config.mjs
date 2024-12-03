@@ -1,16 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true, // Enforces best practices
-  swcMinify: true, // Enables SWC compiler for faster builds
-  trailingSlash: false, // Ensures URLs are clean without trailing slashes
+  reactStrictMode: true,
+  swcMinify: true,
+  trailingSlash: false,
   async redirects() {
     return [
       {
-        source: "/",
-        destination: "/home", // Redirect root to a specific route (optional)
+        source: "/", // Redirect root
+        destination: "/dashboard/home", // Points to the correct home page
         permanent: true,
       },
     ];
+  },
+  experimental: {
+    appDir: true, // Enable app directory
   },
 };
 
