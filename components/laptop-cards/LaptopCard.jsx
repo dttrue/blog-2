@@ -4,6 +4,7 @@ const LaptopCard = ({
   features,
   ctaLink,
   image,
+  alt, 
   reverse = false,
 }) => {
   return (
@@ -16,11 +17,11 @@ const LaptopCard = ({
       <div className="md:w-1/2">
         <img
           src={image}
-          alt={name}
+          alt={alt} // Use the alt property here
           className="w-full h-auto rounded-lg shadow-lg"
         />
         {/* Description */}
-        <p className="text-gray-600 mt-4 text">{description}</p>
+        <p className="text-gray-600 mt-4">{description}</p>
       </div>
 
       {/* Content Section */}
@@ -59,6 +60,7 @@ const LaptopCard = ({
             </tbody>
           </table>
         </div>
+
         {/* CTA Button */}
         <a
           href={ctaLink}
@@ -66,7 +68,7 @@ const LaptopCard = ({
           rel="noopener noreferrer"
           className="mt-6 inline-block px-6 py-3 text-white bg-blue-500 hover:bg-blue-600 rounded-lg shadow transition duration-200"
         >
-          Check Price on Amazon
+          learn more
         </a>
       </div>
     </div>

@@ -6,7 +6,7 @@ const HeroSection = () => {
       <div
         className="relative bg-cover bg-center bg-no-repeat text-center py-48"
         style={{
-          backgroundImage: "url('/hero-2.jpg')",
+          backgroundImage: "url('images/hero-2.jpg')",
           filter: "brightness(0.9)",
         }}
       >
