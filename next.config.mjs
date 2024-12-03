@@ -7,7 +7,7 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/dashboard/home", // Points to the correct home page
+        destination: "/home", // Points to the correct home page
         permanent: true,
       },
     ];
