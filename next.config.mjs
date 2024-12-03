@@ -6,15 +6,13 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/", // Redirect root
+        source: "/",
         destination: "/dashboard/home", // Points to the correct home page
         permanent: true,
       },
     ];
   },
-  experimental: {
-    appDir: true, // Enable app directory
-  },
+ 
 };
 
 export default nextConfig;
