@@ -1,10 +1,10 @@
 import Footer from "@/components/footer/Footer";
 import HeroSection from "@/components/hero/HeroSection";
 import LaptopCard from "@/components/laptop-cards/LaptopCard";
-import NewsLetter from "@/components/newsletter/NewsLetter";
+;
 import laptopsData from "@/lib/laptopsData";
 
-const Home = () => {
+const BestLaptops = () => {
   return (
     <>
       {/* Hero Section */}
@@ -28,8 +28,7 @@ const Home = () => {
         ))}
       </section>
 
-      {/* Newsletter Section */}
-      <NewsLetter />
+   
 
       {/* Footer Section */}
       <Footer />
@@ -37,4 +36,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default BestLaptops;

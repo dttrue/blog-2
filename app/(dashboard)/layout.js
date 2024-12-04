@@ -33,7 +33,7 @@ export default function DashboardLayout({ children }) {
             </div>
             <div className="mx-2 flex-1 px-2 text-2xl font-bold text-blue-500 hover:text-blue-600 flex items-center space-x-2 transition duration-200">
               <FaLaptop className="text-blue-500 hover:text-blue-600 h-8 w-8 transition duration-200" />
-              <span className="tracking-wide">Coding Laptops HQ</span>
+              <span className="tracking-wide">Modern Tech Tools</span>
             </div>
             <div className="flex-none">
               <div className="menu menu-horizontal p-0">

@@ -20,7 +20,7 @@ const HeroSection = () => {
             Curated reviews and recommendations tailored for developers and
             coders.
           </p>
-          <div className="mt-8 space-x-4">
+          {/* <div className="mt-8 space-x-4">
             <Link href="#laptops" className="btn btn-primary px-6 py-3 text-lg">
               See Full List
             </Link>
@@ -30,7 +30,7 @@ const HeroSection = () => {
             >
               Quick Links
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
